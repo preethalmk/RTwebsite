@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title  %}
+<title>Details page Template</title>
+{% endblock %}
+
+{% block content %}
+<div class="containers">
+    <div class="row">
+        <div class="col">
+          {{object.Titile}} <br/>
+          {{object.description}} <br/>
+          {{object.price}} <br/>
+          {{object.timestamp|timesince}} ago <br/>
+          {% if object.image %}
+            <img src='{{object.image.url}}' class='img-fluid'/>
+          {% endif  %}
+      </div>
+      <div class="col">
+        {{object.Titile}} <br/>
+        {{object.description}} <br/>
+        {{object.price}} <br/>
+        {{object.timestamp|timesince}} ago <br/>
+        {% if object.image %}
+          <img src='{{object.image.url}}' class='img-fluid'/>
+        {% endif  %}
+    </div>
+    </div>
+  </div>
+
+{% endblock %}

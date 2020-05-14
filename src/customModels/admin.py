@@ -1,0 +1,19 @@
+from django.contrib import admin
+
+# Register your models here.
+
+from .models import commonTypes,common
+
+class CommonTypesAdmin(admin.ModelAdmin):
+    list_display= ['__str__']
+    class Meta:
+        model=commonTypes
+
+class CommonAdmin(admin.ModelAdmin):
+    list_display= ['__str__']
+    class Meta:
+        model=common
+
+
+admin.site.register(commonTypes,CommonTypesAdmin)
+admin.site.register(common,CommonAdmin)
