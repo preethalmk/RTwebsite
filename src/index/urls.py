@@ -22,12 +22,9 @@ from .views import (index_page,
                     login_page,
                     contact_page,
                     register_page,
-                    blog_page,
-                    blog_details_page,
                     check_out_page,
                     faq_page,
                     product_page,
-                    shop_page,
                     shopping_cart_page
                     )
 
@@ -38,15 +35,9 @@ urlpatterns = [
     path('login/', login_page,name='login'),
     path('contact/', contact_page,name='contact'),
     path('register/', register_page,name='register'),
-    path('blog/', blog_page,name='blog'),
-    path('blogdetails/',blog_details_page,name='blogdetails' ),
     path('checkout/',check_out_page,name='checkout'),
     path('faq/',faq_page,name='faq'),
     path('products/',include("product.urls",namespace="product")),
-    #path('product/',product_page,name='product'),
-    #path('shop/',shop_page,name='shop'),
-    #path('shoppingcart/',shopping_cart_page,name='shoppingcart')
-
 ]
 
 if settings.DEBUG:

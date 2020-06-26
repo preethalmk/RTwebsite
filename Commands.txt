@@ -4,6 +4,7 @@ cd ~/dev/ecommerce/
 .\Scripts\activate
  pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org Django==1.11.4 -- error
  pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org Django
+ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org Pillow
  mkdir src
  cd src
 django-admin startproject ecommerce .

@@ -1,0 +1,465 @@
+{% load static %}
+{% load i18n %}
+{% load static %}
+{% url 'index' as index_url %}
+{% url 'product:shop' as shop_url %}
+{% url 'login' as login_url %}
+{% url 'contact' as contact_url %}
+{% url 'register' as register_url %}
+{% url 'blog' as blog_url %}
+{% url 'blogdetails' as blogdetails_url %}
+{% url 'checkout' as checkout_url %}
+{% url 'faq' as faq_url %}
+{% url 'product' as product_url %}
+{% url 'register' as register_url %}
+{% url 'shoppingcart' as shoppingcart_url  %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}  {% endblock title %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/font-awesome.min.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/themify-icons.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/elegant-icons.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/owl.carousel.min.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/nice-select.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/jquery-ui.min.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/slicknav.min.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/style.css"  %}' type="text/css">
+    <link rel="stylesheet" href='{% static "css/rt-section.css"  %}' type="text/css">
+
+    <!-- Js Plugins -->
+    <script src='{% static "js/jquery-3.3.1.min.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/jquery-ui.min.js" %}'></script>
+    <script src='{% static "js/jquery.countdown.min.js" %}'></script>
+    <script src='{% static "js/jquery.nice-select.min.js" %}'></script>
+    <script src='{% static "js/jquery.zoom.min.js" %}'></script>
+    <script src='{% static "js/jquery.dd.min.js" %}'></script>
+    <script src='{% static "js/jquery.slicknav.js" %}'></script>
+    <script src='{% static "js/owl.carousel.min.js" %}'></script>
+    <script src='{% static "js/main.js" %}'></script>
+    <script src='{% static "js/owl.carousel.js" %}'></script>
+
+    <script>
+					  $(document).ready(function() {
+              for (i = 0; i < 11; i++) {
+                var owl = $(".owl-col-"+String(i));
+
+    					  owl.owlCarousel({
+    					      items : i, //10 items above 1000px browser width
+    					      itemsDesktop : [1000,Math.min(1,parseInt(i/2))], //5 items between 1000px and 901px
+    					      itemsDesktopSmall : [900,Math.min(1,parseInt(i/3))], // betweem 900px and 601px
+    					      itemsTablet: [600,Math.min(1,parseInt(i/5))], //2 items between 600 and 0
+    					      itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+    					  });
+              }
+
+
+					});
+    </script>
+
+    <style>
+
+        .item{
+          background: white;
+          padding: 2% 2%;
+          margin: 0%;
+          color: #FFF;
+          -webkit-border-radius: 3%;
+          -moz-border-radius: 3%;
+          border-radius: 3%;
+          text-align: center;
+          border: 1px black;
+        }
+
+
+        .shadow-block{
+            background: #3fbf79;
+            padding: 0px 0px;
+            margin: 10px;
+            color: #FFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            text-align: center;
+          }
+
+    </style>
+  </head>
+  <body>
+    <header class="header-section">
+        <div class="header-top">
+            <div class="container">
+                <div class="ht-left">
+                    <div class="mail-service">
+                        <i class=" fa fa-envelope"></i>
+                        {{ emailQS.value }}
+                    </div>
+                    <div class="phone-service">
+                        <i class=" fa fa-phone"></i>
+                        {{ phoneQS.value }}
+                    </div>
+                </div>
+                <div class="ht-right">
+                    <a href="{% url 'login' %}" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <div class="lan-selector">
+                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
+                            <option value='yt' data-image='{% static "img/flag-1.jpg" %}' data-imagecss="flag yt"
+                                data-title="English">English</option>
+                            <option value='yu' data-image='{% static "img/flag-2.jpg" %}' data-imagecss="flag yu"
+                                data-title="Bangladesh">German </option>
+                        </select>
+                    </div>
+                    <div class="top-social">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter-alt"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="{% url 'index' %}">
+                                <img src='{{ headerLogoQS.image.url }}' alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7">
+                        <div class="advanced-search">
+                            <button type="button" class="category-btn">All Categories</button>
+                            <div class="input-group">
+                                <input type="text" placeholder="What do you need?">
+                                <button type="button"><i class="ti-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-right col-md-3">
+                        <ul class="nav-right">
+                            <li class="heart-icon">
+                                <a href="#">
+                                    <i class="icon_heart_alt"></i>
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="cart-icon">
+                                <a href="#">
+                                    <i class="icon_bag_alt"></i>
+                                    <span>3</span>
+                                </a>
+                                <div class="cart-hover">
+                                    <div class="select-items">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="si-pic"><img src='{% static "img/select-product-1.jpg" %}' alt=""></td>
+                                                    <td class="si-text">
+                                                        <div class="product-selected">
+                                                            <p>$60.00 x 1</p>
+                                                            <h6>Kabino Bedside Table</h6>
+                                                        </div>
+                                                    </td>
+                                                    <td class="si-close">
+                                                        <i class="ti-close"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="si-pic"><img src='{% static "img/select-product-2.jpg" %}' alt=""></td>
+                                                    <td class="si-text">
+                                                        <div class="product-selected">
+                                                            <p>$60.00 x 1</p>
+                                                            <h6>Kabino Bedside Table</h6>
+                                                        </div>
+                                                    </td>
+                                                    <td class="si-close">
+                                                        <i class="ti-close"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="select-total">
+                                        <span>total:</span>
+                                        <h5>$120.00</h5>
+                                    </div>
+                                    <div class="select-button">
+                                        <a href="{{ shoppingcart_url }}" class="primary-btn view-card">VIEW CARD</a>
+                                        <a href="{{ checkout_url }}" class="primary-btn checkout-btn">CHECK OUT</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="cart-price">$150.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            <div class="container">
+                <div class="nav-depart">
+                    <div class="depart-btn">
+                        <i class="ti-menu"></i>
+                        <span>All departments</span>
+                        <ul class="depart-hover">
+                            <li class="active"><a href="#">Women’s Clothing</a></li>
+                            <li><a href="#">Men’s Clothing</a></li>
+                            <li><a href="#">Underwear</a></li>
+                            <li><a href="#">Kid's Clothing</a></li>
+                            <li><a href="#">Brand Fashion</a></li>
+                            <li><a href="#">Accessories/Shoes</a></li>
+                            <li><a href="#">Luxury Brands</a></li>
+                            <li><a href="#">Brand Outdoor Apparel</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                        <li class="nav-item {% if request.path == index_url %}active{% endif %} ">
+                            <a href="{{ index_url }}">Home</a></li>
+                        <li class="nav-item {% if request.path == shop_url %}active{% endif %} ">
+                            <a href="{{ shop_url }}">Shop</a></li>
+                        <li><a href="#">Collection</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Men's</a></li>
+                                <li><a href="#">Women's</a></li>
+                                <li><a href="#">Kid's</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item {% if request.path == blog_url %}active{% endif %} ">
+                            <a href="{{ blog_url }}">Blog</a></li>
+                        <li class="nav-item {% if request.path == contact_url %}active{% endif %} ">
+                            <a href="{{ contact_url }}">Contact</a></li>
+                        <li><a href="#">Pages</a>
+                            <ul class="dropdown">
+                                <li ><a href="{{ blogdetails_url }}">Blog Details</a></li>
+                                <li><a href="{{ shoppingcart_url }}">Shopping Cart</a></li>
+                                <li><a href="{{ checkout_url }}">Checkout</a></li>
+                                <li><a href="{{ faq_url }}">Faq</a></li>
+                                <li><a href="{{ register_url }}">Register</a></li>
+                                <li><a href="{{ login_url }}">Login</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="hero-items owl-carousel">
+            {% for h in heroLogoQS %}
+            <div class="single-hero-items set-bg" data-setbg='{{ h.image.url }}'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span>{{ h.Name }}</span>
+                            <h1>{{ h.value }}</h1>
+                            <p>{{ h.description }}</p>
+                            <a href="#" class="primary-btn">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="off-card">
+                        <h2>{{ h.value1 }} <span>{{ h.value2 }}</span></h2>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+<section >
+  <div class="shadow-block">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+   <div class="row" style="border-bottom: 1px solid #dbd6d6;">
+          <div class="rt-section-title">
+              <h3><u>All catageory</u></h3>
+          </div>
+          <div class="col-sm-12" style="float: left;position: absolute;padding: 15px;">
+          <button class="btn btn-primary pull-right btn-sm RbtnMargin" type="button">View All</button>
+          </div>
+   </div>
+    <div class="row">
+      <div class="owl-col-4 owl-carousel owl-theme">
+        {% for b in catageoryQuerySet %}
+        <div class="item">
+              <div class="single-banner">
+                  <a href="">
+                  <img class="img-circle" src='{{ b.image.url }}' alt="">
+                  <div class="inner-text">
+                      <h4>{{ b.name }}</h4>
+                  </div>
+                  </a>
+               </div>
+          </div>
+       {% endfor %}
+       </div>
+     </div>
+   </div>
+ </div>
+ </section>
+
+ {% for ckey,sccatlist in catageoryQuerySet.items %}
+     {% for sckey,plist in sccatlist.items %}
+     <section >
+      <div class="shadow-block">
+       <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="row" style="border-bottom: 1px solid #dbd6d6;">
+               <div class="rt-section-title">
+                   <h3><u>{{ sckey.name }}</u></h3>
+                   <p>{{ ckey.name }}</p>
+               </div>
+               <div class="col-sm-12" style="float: left;position: absolute;padding: 15px;">
+               <button class="btn btn-primary pull-right btn-sm RbtnMargin" type="button">View All</button>
+               </div>
+        </div>
+         <div class="row">
+           <div class="owl-col-4 owl-carousel owl-theme">
+             {% for p in plist %}
+             <div class="item">
+               <div class="product-item">
+                   <div class="pi-pic">
+                       <img class="img-thumbnail" src='{{ p.image.url }}' alt="">
+                       <div class="sale">Sale</div>
+                       <div class="icon">
+                           <i class="icon_heart_alt"></i>
+                       </div>
+                       <ul>
+                           <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                           <li class="quick-view"><a href="#">+ Quick View</a></li>
+                           <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                       </ul>
+                   </div>
+                   <div class="pi-text">
+                       <div class="catagory-name">{{ key.name }}</div>
+                       <a href="#">
+                           <h5>{{p.name}}</h5>
+                       </a>
+                       <div class="product-price">
+                           $14.00
+                           <span>$35.00</span>
+                       </div>
+                   </div>
+               </div>
+              </div>
+            {% endfor %}
+            </div>
+            </div>
+        </div>
+      </div>
+      </section>
+     {% endfor %}
+   {% endfor %}
+
+   <!-- Partner Logo Section Begin -->
+   <div class="partner-logo">
+       <div class="container">
+           <div class="logo-carousel owl-carousel">
+               {% for p in PartnerLogoQS %}
+               <div class="logo-item">
+                   <div class="tablecell-inner">
+                       <img src='{{ p.image.url }}' alt="">
+                   </div>
+               </div>
+               {% endfor %}
+           </div>
+       </div>
+   </div>
+   <!-- Partner Logo Section End -->
+
+   <!-- Footer Section Begin -->
+   <footer class="footer-section">
+       <div class="container">
+           <div class="row">
+               <div class="col-lg-3">
+                   <div class="footer-left">
+                       <div class="footer-logo">
+                           <a href="#"><img src='{{ footerLogoQS.image.url }}' alt=""></a>
+                       </div>
+                       <ul>
+                           <li>Address: {{ addressQS.value }}</li>
+                           <li>Phone: {{ phoneQS.value }}</li>
+                           <li>Email: {{ emailQS.value }}</li>
+                       </ul>
+                       <div class="footer-social">
+                           <a href="#"><i class="fa fa-facebook"></i></a>
+                           <a href="#"><i class="fa fa-instagram"></i></a>
+                           <a href="#"><i class="fa fa-twitter"></i></a>
+                           <a href="#"><i class="fa fa-pinterest"></i></a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-2 offset-lg-1">
+                   <div class="footer-widget">
+                       <h5>Information</h5>
+                       <ul>
+                           <li><a href="#">About Us</a></li>
+                           <li><a href="#">Checkout</a></li>
+                           <li><a href="#">Contact</a></li>
+                           <li><a href="#">Serivius</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <div class="col-lg-2">
+                   <div class="footer-widget">
+                       <h5>My Account</h5>
+                       <ul>
+                           <li><a href="#">My Account</a></li>
+                           <li><a href="#">Contact</a></li>
+                           <li><a href="#">Shopping Cart</a></li>
+                           <li><a href="#">Shop</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <div class="col-lg-4">
+                   <div class="newslatter-item">
+                       <h5>Join Our Newsletter Now</h5>
+                       <p>Get E-mail updates about our latest shop and special offers.</p>
+                       <form action="#" class="subscribe-form">
+                           <input type="text" placeholder="Enter Your Mail">
+                           <button type="button">Subscribe</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="copyright-reserved">
+           <div class="container">
+               <div class="row">
+                   <div class="col-lg-12">
+                       <div class="copyright-text">
+                           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                       </div>
+                       <div class="payment-pic">
+                           <img src='{{ paymentMethodLogoQS.image.url }}' alt="">
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </footer>
+   <!-- Footer Section End -->
+   </body>
+
+   </html>

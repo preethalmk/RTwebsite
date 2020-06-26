@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="zxx">
+{% extends 'snippets/indexTemplate.html' %}
+{% load static %}
 
-{% include 'snippets/header.html' %}
+{% block title %} {{ title }} {% endblock title %}
 
-<body>
-
-    {% include 'snippets/headpanel.html' %}
-
+{% block body %}
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
         <div class="container">
@@ -55,7 +52,7 @@
                             </div>
                             <div class="ci-text">
                                 <span>Address:</span>
-                                <p>60-49 Road 11378 New York</p>
+                                <p>{{ addressQS.value }}</p>
                             </div>
                         </div>
                         <div class="cw-item">
@@ -64,7 +61,7 @@
                             </div>
                             <div class="ci-text">
                                 <span>Phone:</span>
-                                <p>+65 11.188.888</p>
+                                <p>{{ phoneQS.value }}</p>
                             </div>
                         </div>
                         <div class="cw-item">
@@ -73,7 +70,7 @@
                             </div>
                             <div class="ci-text">
                                 <span>Email:</span>
-                                <p>hellocolorlib@gmail.com</p>
+                                <p>{{ emailQS.value }}</p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +102,4 @@
     </section>
     <!-- Contact Section End -->
 
-   {% include 'snippets/footer.html' %}
-</body>
-
-</html>
+{% endblock body %}

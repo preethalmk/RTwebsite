@@ -1,26 +1,9 @@
-  {% load static %}
-  {% url 'index' as index_url %}
-  {% url 'shop' as shop_url %}
-  {% url 'login' as login_url %}
-  {% url 'contact' as contact_url %}
-  {% url 'register' as register_url %}
-  {% url 'blog' as blog_url %}
-  {% url 'blogdetails' as blogdetails_url %}
-  {% url 'checkout' as checkout_url %}
-  {% url 'faq' as faq_url %}
-  {% url 'product' as product_url %}
-  {% url 'register' as register_url %}
-  {% url 'shoppingcart' as shoppingcart_url %}
+{% extends 'snippets/indexTemplate.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="zxx">
+{% block title %} {{ title }} {% endblock title %}
 
-{% include 'snippets/header.html' %}
-
-<body>
-
-    {% include 'snippets/headpanel.html' %}
-
+{% block body %}
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
         <div class="container">
@@ -68,7 +51,4 @@
     </div>
     <!-- Register Form Section End -->
 
-    {% include 'snippets/footer.html' %}
-</body>
-
-</html>
+{% endblock body %}
