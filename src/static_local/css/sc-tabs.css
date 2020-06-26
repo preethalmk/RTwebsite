@@ -1,0 +1,76 @@
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+.filter-control {
+	text-align: center;
+	margin-bottom: 45px;
+	padding-top: 32px;
+}
+
+.filter-control ul li {
+	list-style: none;
+	display: inline-block;
+	font-size: 20px;
+	color: #b2b2b2;
+	margin-right: 22px;
+	position: relative;
+	cursor: pointer;
+}
+
+.filter-control ul li.active {
+	color: #171717;
+}
+
+.filter-control ul li.active:before {
+	opacity: 1;
+}
+
+.filter-control ul li:before {
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 100%;
+	height: 2px;
+	background: #171717;
+	content: "";
+	opacity: 0;
+}
+
+.filter-control ul li:last-child {
+	margin-right: 0;
+}

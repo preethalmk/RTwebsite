@@ -1,0 +1,50 @@
+.item{
+  background: white;
+  padding: 2% 2%;
+  margin: 0%;
+  color: #FFF;
+  -webkit-border-radius: 3%;
+  -moz-border-radius: 3%;
+  border-radius: 3%;
+  text-align: center;
+  border: 1px black;
+}
+
+
+.shadow-block{
+    background: #3fbf79;
+    padding: 0px 0px;
+    margin: 1%;
+    color: #FFF;
+    text-align:left;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  rt-section-title h3{
+    color: #252525;
+    font-size: 25px;
+    font-weight: 700
+    margin: 0;
+    padding: 0;
+  }
+
+  .rt-section-title h3 u {
+    text-decoration-color: orange;
+  }
+
+  .rt-section-title p {
+    color: #6e6e6e;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 0;
+
+  }
+
+  .button-centre {
+    position: absolute;
+    right : 3%;
+    top: 10px;
+  }

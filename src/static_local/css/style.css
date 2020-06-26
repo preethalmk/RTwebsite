@@ -1267,6 +1267,14 @@ ol {
 }
 
 /*---------------------
+RT section css
+-----------------------*/
+
+._rt-sec {
+	max-width:50%;
+}
+
+/*---------------------
   Deal Of The Week
 -----------------------*/
 
@@ -3887,6 +3895,7 @@ ol {
 	color: #6B6B6B;
 }
 
+
 /* ------------------------------ Responsive Media Styles ---------------------------- */
 
 @media only screen and (min-width: 1200px) and (max-width: 1920px) {
@@ -3964,6 +3973,12 @@ ol {
 		margin-left: 0;
 		margin-right: 0;
 	}
+
+	._rt-sec {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
 	.product-slider .owl-nav button[type=button] {
 		display: none;
 	}
